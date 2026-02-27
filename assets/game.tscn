@@ -1,8 +1,23 @@
-[gd_scene format=3 uid="uid://cm4qir40l0ty2"]
+[gd_scene format=4 uid="uid://cm4qir40l0ty2"]
+
+[ext_resource type="Texture2D" uid="uid://cpstsgf24sh8k" path="res://assets/spritesheet.png" id="1_f3fhv"]
+[ext_resource type="PackedScene" uid="uid://dtl117y5af07u" path="res://Player/player.tscn" id="2_0aill"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0aill"]
+texture = ExtResource("1_f3fhv")
+0:1/0 = 0
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ej7j1"]
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_0aill")
 
 [node name="Node2D" type="Node2D" unique_id=625840462]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=219639194]
+tile_map_data = PackedByteArray("AAAAAAIAAgABAAEAAAABAAIAAgABAAEAAAACAAIAAgABAAEAAAADAAIAAgABAAEAAAAEAAIAAgABAAEAAAAFAAIAAgABAAEAAAAGAAIAAgABAAEAAAAHAAIAAgABAAEAAAAIAAIAAgABAAEAAAAJAAIAAgABAAEAAAAKAAIAAgABAAEAAAALAAIAAgABAAEAAAAMAAIAAgABAAEAAAANAAIAAgABAAEAAAAOAAIAAgABAAEAAAAPAAIAAgABAAEAAAD//wIAAgABAAEAAAD+/wIAAgABAAEAAAD9/wIAAgABAAEAAAD8/wIAAgABAAEAAAD7/wIAAgABAAEAAAAKAAEAAgAAAAEAAAANAAEAAgAAAAEAAAANAAAAAgAAAAEAAAAOAAEAAgAAAAEAAAA=")
 tile_set = SubResource("TileSet_ej7j1")
+
+[node name="Player" parent="." unique_id=1765486710 instance=ExtResource("2_0aill")]
