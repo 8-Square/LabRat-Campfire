@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dtl117y5af07u"]
 
-[ext_resource type="Script" uid="uid://00mf1db8t4ur" path="res://Player/player.gd" id="1_4ntmi"]
+[ext_resource type="Script" uid="uid://cj0oqjgfi8bjj" path="res://Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://b60jn1hqd8g87" path="res://assets/rat.png" id="1_l8h54"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
@@ -17,4 +17,4 @@ texture_filter = 1
 texture = ExtResource("1_l8h54")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=205748499]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(1.7, 1.7)
