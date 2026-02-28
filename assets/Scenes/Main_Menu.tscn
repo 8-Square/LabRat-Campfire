@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bvd4mt1vbmkfg"]
+
+[ext_resource type="Script" uid="uid://cylqjco8pgxff" path="res://Main_menu.gd" id="1_fan6o"]
+[ext_resource type="Script" uid="uid://dat64lxyt3v2x" path="res://assets/Scenes/quit_button.gd" id="2_7ffuj"]
+[ext_resource type="Script" uid="uid://st0wor1ojux2" path="res://assets/Scenes/play_button.gd" id="3_vnx52"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sa0xv"]
+
+[node name="Node2D" type="Node2D" unique_id=1120268218]
+script = ExtResource("1_fan6o")
+
+[node name="Control" type="Control" parent="." unique_id=603298196]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=777721144]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 449.0
+offset_right = 1162.0
+offset_bottom = 489.0
+texture = SubResource("PlaceholderTexture2D_sa0xv")
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=612386067]
+layout_mode = 0
+offset_left = -14.0
+offset_top = -4.0
+offset_right = 1308.0
+offset_bottom = 792.0
+
+[node name="Container" type="Container" parent="Control" unique_id=65128429]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 134.0
+offset_right = 1178.0
+offset_bottom = 601.0
+
+[node name="quit_button" type="Button" parent="Control/Container" unique_id=1611331362]
+layout_mode = 2
+action_mode = 0
+text = "Quit Game"
+script = ExtResource("2_7ffuj")
+
+[node name="play_button" type="Button" parent="Control/Container" unique_id=800762926]
+layout_mode = 2
+text = "Play Game"
+script = ExtResource("3_vnx52")
