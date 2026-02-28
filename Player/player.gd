@@ -1,9 +1,12 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
+@export var respawn_point: Node2D
 
 const SPEED = 400
+const SPRINT_SPEED = 600
 const JUMP_VELOCITY = -350.0
 
+var toggled_sprint: bool = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -23,6 +26,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+func toggle_sprint():
+	pass
 
 # Spikes/Death Loop
 func check_spikes():
