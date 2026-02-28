@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b60jn1hqd8g87"
-path="res://.godot/imported/rat.png-b418fcc6025aca75e39ec85bc3691ead.ctex"
+uid="uid://bcl4cpce2p6d2"
+path="res://.godot/imported/spikeplacehoder.png-85497a66067a1dc4ffa4ba8890379d91.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rat.png"
-dest_files=["res://.godot/imported/rat.png-b418fcc6025aca75e39ec85bc3691ead.ctex"]
+source_file="res://assets/Sprites/spikeplacehoder.png"
+dest_files=["res://.godot/imported/spikeplacehoder.png-85497a66067a1dc4ffa4ba8890379d91.ctex"]
 
 [params]
 
