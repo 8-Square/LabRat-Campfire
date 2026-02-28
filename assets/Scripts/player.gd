@@ -1,8 +1,11 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
+
 
 @export var respawn_point: Node2D
 
-@onready var stage_0: AnimatedSprite2D = $Stage0
+@onready var stage_bit: StageBit = $StageBit
+@onready var timer: Timer = $Timer
+@onready var animated_sprite: AnimatedSprite2D
 
 const SPEED = 250
 const SPRINT_SPEED = 400
@@ -13,6 +16,10 @@ var toggled_sprint: bool = false
 var is_walking: bool = false
 
 var can_control: bool = true
+
+func _ready() -> void:
+	stage_bit.applySprite(0)
+	animated_sprite = stage_bit.currentSprite()
 
 func _physics_process(delta: float) -> void:
 	# if can_control is off, player cant control, as the name implies....
@@ -44,13 +51,13 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = direction * SPEED
 			# Sets walking animation
-			stage_0.play("walk")
-			stage_0.flip_h = velocity.x < 0
+			animated_sprite.play("walk")
+			animated_sprite.flip_h = velocity.x < 0
 		is_walking = true
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		stage_0.play("idle")
+		animated_sprite.play("idle")
 	
 	
 	# Sprinting code thingy (toggles sprinting)

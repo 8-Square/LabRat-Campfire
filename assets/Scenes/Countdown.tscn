@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bkbfrcsmb2y2y"]
+
+[ext_resource type="Script" uid="uid://buc8ftmw5uu4i" path="res://assets/Scripts/time.gd" id="1_21dbo"]
+
+[node name="Control" type="Control" unique_id=320910290]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_21dbo")
+
+[node name="Countdown" type="Label" parent="." unique_id=661313126]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 75
+text = "ww"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1465818558]
+wait_time = 100.0
+autostart = true
