@@ -17,6 +17,15 @@ var is_walking: bool = false
 
 var can_control: bool = true
 
+
+@export var allowed_direction := Vector2.RIGHT
+
+@export var one_way_layer := 2
+@export var pass_through_time := 0.2
+
+var passing_through := false
+
+
 func _ready() -> void:
 	stage_bit.applySprite(0)
 	animated_sprite = stage_bit.currentSprite()
@@ -55,6 +64,9 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.flip_h = velocity.x < 0
 		is_walking = true
 		
+		# One way wall
+		if is_touching_one_way_wall():
+			pass_through_wall()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animated_sprite.play("idle")
@@ -82,33 +94,12 @@ func reset() -> void:
 func check_spikes():
 	pass
 
-@export var allowed_direction := Vector2.RIGHT
-
-
-
-
-@export var one_way_layer := 2
-@export var pass_through_time := 0.2
-
-var passing_through := false
-
-func _physics_process(delta):
-	var input_dir = Input.get_axis("ui_left", "ui_right")
-
-	# If pressing left or right and not already passing through
-	if input_dir != 0 and not passing_through:
-		if is_touching_one_way_wall():
-			pass_through_wall()
-
-	# Your normal movement code below
-	velocity.x = input_dir * 200
-	move_and_slide()
 
 
 func is_touching_one_way_wall() -> bool:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		if collision.get_collider().collision_layer & (1 << (one_way_layer - 1)):
+		if collision.get_collider() && (1 << (one_way_layer - 1)):
 			return true
 	return false
 
