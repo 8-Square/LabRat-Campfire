@@ -5,8 +5,8 @@ class_name Player extends CharacterBody2D
 
 @onready var stage_0: AnimatedSprite2D = $Stage0
 
-const SPEED = 400
-const SPRINT_SPEED = 600
+const SPEED = 250
+const SPRINT_SPEED = 400
 const JUMP_VELOCITY = -350.0
 
 var toggled_sprint: bool = false

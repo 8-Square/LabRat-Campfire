@@ -105,17 +105,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
-size = Vector2(48, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gujn"]
+size = Vector2(42, 30)
 
 [node name="Player" type="CharacterBody2D" unique_id=1765486710]
 script = ExtResource("1_4ntmi")
 
 [node name="Stage0" type="AnimatedSprite2D" parent="." unique_id=951105353]
 texture_filter = 1
+position = Vector2(12, -11)
 sprite_frames = SubResource("SpriteFrames_x3vf3")
 animation = &"walk"
-frame_progress = 0.8068262
 
 [node name="Stage1" type="AnimatedSprite2D" parent="." unique_id=978079954]
 visible = false
@@ -139,5 +139,5 @@ animation = &"walk"
 zoom = Vector2(1.7, 1.7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=654288094]
-position = Vector2(13, 3)
-shape = SubResource("RectangleShape2D_4ntmi")
+position = Vector2(26, -8)
+shape = SubResource("RectangleShape2D_7gujn")
