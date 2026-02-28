@@ -1,12 +1,12 @@
-[gd_scene format=3 uid="uid://bi51racw2y1dy"]
+[gd_scene format=3 uid="uid://bj8rpvy0lrxjg"]
 
 [ext_resource type="Script" uid="uid://qlhw7la5vkox" path="res://assets/Scripts/player.gd" id="1_6dsi4"]
 [ext_resource type="Texture2D" uid="uid://dydrvtd63eyfd" path="res://assets/Sprites/Player/Stage 0/player-stage0.png" id="2_2pn7s"]
 [ext_resource type="Texture2D" uid="uid://b60jn1hqd8g87" path="res://assets/Sprites/rat.png" id="2_apsa1"]
-[ext_resource type="Script" uid="uid://bmmy05eqr3jk2" path="res://assets/Scenes/stage_bit.gd" id="3_apsa1"]
+[ext_resource type="Script" path="res://assets/Scenes/stage_bit.gd" id="3_apsa1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4662"]
-size = Vector2(44, 32)
+size = Vector2(44, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_apsa1"]
 atlas = ExtResource("2_2pn7s")
@@ -184,7 +184,7 @@ animations = [{
 script = ExtResource("1_6dsi4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1984248844]
-position = Vector2(12, 3)
+position = Vector2(12, 2.5)
 shape = SubResource("RectangleShape2D_q4662")
 
 [node name="Stage1" type="AnimatedSprite2D" parent="." unique_id=235676299]
