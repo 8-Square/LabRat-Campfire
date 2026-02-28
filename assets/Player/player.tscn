@@ -4,41 +4,46 @@
 [ext_resource type="Texture2D" uid="uid://c0p6y1amk5ed8" path="res://assets/Player/player_idle.png" id="2_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://pbpvk4ddnkx2" path="res://assets/Player/player_walk.png" id="3_btcbx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fhl08"]
-atlas = ExtResource("2_4ntmi")
-region = Rect2(0, 0, 62, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vtle1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gujn"]
 atlas = ExtResource("3_btcbx")
-region = Rect2(1, 0, 82, 64)
+region = Rect2(0, 65, 82, 65)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_od3ui"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvr4l"]
 atlas = ExtResource("3_btcbx")
-region = Rect2(83, 0, 82, 64)
+region = Rect2(0, 0, 82, 65)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_00tjw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr3b8"]
 atlas = ExtResource("3_btcbx")
-region = Rect2(165, 0, 82, 64)
+region = Rect2(82, 0, 82, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwwki"]
+atlas = ExtResource("3_btcbx")
+region = Rect2(164, 0, 82, 65)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x3vf3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fhl08")
+"texture": SubResource("AtlasTexture_7gujn")
 }],
 "loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vtle1")
+"texture": SubResource("AtlasTexture_hvr4l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_od3ui")
+"texture": SubResource("AtlasTexture_cr3b8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_00tjw")
+"texture": SubResource("AtlasTexture_kwwki")
 }],
 "loop": true,
 "name": &"walk",
@@ -106,16 +111,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
-size = Vector2(48, 32)
+size = Vector2(48, 30)
 
 [node name="Player" type="CharacterBody2D" unique_id=1765486710]
 script = ExtResource("1_4ntmi")
 
 [node name="Stage0" type="AnimatedSprite2D" parent="." unique_id=951105353]
 texture_filter = 1
+position = Vector2(16, 0)
 sprite_frames = SubResource("SpriteFrames_x3vf3")
-animation = &"walk"
-frame_progress = 0.8068262
+animation = &"idle"
 
 [node name="Stage1" type="AnimatedSprite2D" parent="." unique_id=978079954]
 visible = false
@@ -139,5 +144,9 @@ animation = &"walk"
 zoom = Vector2(1.7, 1.7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=654288094]
-position = Vector2(13, 3)
+position = Vector2(13, 4)
 shape = SubResource("RectangleShape2D_4ntmi")
+
+[node name="Timer" type="Timer" parent="." unique_id=1577520197]
+wait_time = 0.05
+one_shot = true
