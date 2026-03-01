@@ -10,8 +10,8 @@ class_name Player extends CharacterBody2D
 
 const SPEED = 250
 const SPRINT_SPEED = 400
-const SPRINT_JUMP_VELOCITY = -275.0
-const JUMP_VELOCITY = -200.0
+const SPRINT_JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -215.0
 
 var toggled_sprint: bool = false
 var is_walking: bool = false
