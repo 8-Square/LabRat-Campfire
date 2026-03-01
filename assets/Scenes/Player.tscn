@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cgendfbaa4gf3" path="res://assets/Sprites/Player/Stage 1/player-stage1.png" id="3_ekhp3"]
 [ext_resource type="Texture2D" uid="uid://c58wxoq0cy7s4" path="res://assets/Sprites/Player/Stage 2/player-stage2.png" id="4_42xth"]
 [ext_resource type="Texture2D" uid="uid://7d0joyobowj2" path="res://assets/Sprites/Player/Stage 3/player-stage3.png" id="4_ekhp3"]
-[ext_resource type="AudioStream" uid="uid://38716m6mnpin" path="res://assets/Audio/sondangsirait419-tikus-220067-[AudioTrimmer.com].mp3" id="7_n5xvf"]
+[ext_resource type="AudioStream" uid="uid://38716m6mnpin" path="res://assets/Audio/rat_death.mp3" id="7_n5xvf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4662"]
 size = Vector2(66.85715, 32)

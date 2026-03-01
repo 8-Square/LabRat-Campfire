@@ -53,7 +53,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_j6qu5")
 theme_override_font_sizes/font_size = 30
-text = "Waa, I'm an Infected Rat and I want to infect all the humans.
+text = "I'm an Infected Rat and I want to infect all the humans.
             
 Help me get to the surface and infect them all!"
 autowrap_mode = 2

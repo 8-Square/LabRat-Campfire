@@ -187,6 +187,14 @@ size = Vector2(305, 104)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fryx4"]
 size = Vector2(180, 64)
 
+[sub_resource type="Animation" id="Animation_0t57a"]
+resource_name = "start"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1v8y2"]
+_data = {
+&"start": SubResource("Animation_0t57a")
+}
+
 [node name="SewerOne" type="Node2D" unique_id=358125105]
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=694161075]
@@ -270,6 +278,18 @@ text = "WASD - Movement
 Space/W - Jump
 Shift/Control - Sprint
 R - Shift"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1580193238]
+offset_left = 136.0
+offset_top = -57.0
+offset_right = 413.0
+offset_bottom = 47.0
+theme_override_fonts/normal_font = ExtResource("10_634sb")
+text = "Sometimes you need to sprint
+And other times, you dont"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1514079046]
+libraries/ = SubResource("AnimationLibrary_1v8y2")
 
 [editable path="CanvasLayer/Countdown"]
 [editable path="Player"]

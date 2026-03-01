@@ -11,8 +11,9 @@ class_name Countdown extends Control
 @onready var game_over_text: Label = $GameOverText
 @onready var rat_death: AudioStreamPlayer = $RatDeath
 @onready var main_menu_button: TextureButton = $MainMenuButton
+@onready var yay: AudioStreamPlayer = $yay
 
-var bts_timer: float = 180
+var bts_timer: float = 120
 
 var game_started 
 var final_time: float
@@ -61,11 +62,11 @@ func skinStage():
 	var current_scene = get_tree().current_scene.scene_file_path
 
 	if current_scene == sewer_one:
-		if bts_timer <= 80 and player.current_stage == 0:
+		if bts_timer <= 100 and player.current_stage == 0:
 			player.changeStage(1)
-		elif bts_timer <= 50 and player.current_stage == 1:
+		elif bts_timer <= 65 and player.current_stage == 1:
 			player.changeStage(2)
-		elif bts_timer <= 30 and player.current_stage == 2:
+		elif bts_timer <= 35 and player.current_stage == 2:
 			player.changeStage(3)
 
 func game_over():
@@ -77,8 +78,11 @@ func player_death():
 	animation_player.play("player_death")
 
 func game_complete():
+	animation_player.play("outro_animation")
+	await animation_player.animation_finished
 	canvas_layer.show()
 	calc_final_score()
+	yay.play()
 
 func change_level():
 	stop()
