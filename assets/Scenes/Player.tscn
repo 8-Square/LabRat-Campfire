@@ -330,7 +330,6 @@ shape = SubResource("RectangleShape2D_q4662")
 debug_color = Color(1.3912795e-08, 0.01758954, 0.024891524, 0.41960785)
 
 [node name="Stage0" type="AnimatedSprite2D" parent="." unique_id=235676299]
-visible = false
 sprite_frames = SubResource("SpriteFrames_6dsi4")
 animation = &"idle"
 

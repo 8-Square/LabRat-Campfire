@@ -3,7 +3,7 @@ class_name Countdown extends Control
 @onready var countdown: Label = $Countdown
 @onready var timer: Timer = $Timer
 
-var bts_timer: float = 60
+var bts_timer: float = 100
 
 var game_started 
 ## Called when the node enters the scene tree for the first time.
@@ -28,5 +28,5 @@ func _process(delta: float) -> void:
 	
 
 func reset():
-	bts_timer = 60
+	bts_timer = 100
 	game_started = false
