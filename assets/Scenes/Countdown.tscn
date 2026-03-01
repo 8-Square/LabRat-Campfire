@@ -184,7 +184,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_6b0ek")
 theme_override_font_sizes/font_size = 75
-text = "140"
+text = "120"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
