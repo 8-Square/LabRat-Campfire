@@ -7,9 +7,11 @@ func _ready() -> void:
 
 
 func _on_play_button_pressed():
-	animation_player.play("intro")
+	animation_player.play("start")
 	await animation_player.animation_finished
 	print("Moving to game")
+	animation_player.play("intro")
+	await animation_player.animation_finished
 	get_tree().change_scene_to_file("res://assets/Scenes/Sewers/Game.tscn")
 	
 
