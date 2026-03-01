@@ -3,10 +3,8 @@
 [ext_resource type="Script" uid="uid://cylqjco8pgxff" path="res://Main_menu.gd" id="1_fan6o"]
 [ext_resource type="Texture2D" uid="uid://cdffjp3ud3toe" path="res://assets/Sprites/MainMenu.png" id="2_7ffuj"]
 [ext_resource type="Texture2D" uid="uid://ch2c1jvi7nue3" path="res://assets/Sprites/UI/blue_rectangle.png" id="2_sa0xv"]
-[ext_resource type="Texture2D" uid="uid://q87y4ncf56eg" path="res://assets/Sprites/UI/green_rectangle.png" id="4_vnx52"]
-[ext_resource type="FontFile" uid="uid://d2cbiv80qul2m" path="res://assets/Fonts/Impacted.ttf" id="5_juwrh"]
 
-[node name="MainMenu" type="Control" unique_id=1025473157]
+[node name="Node2D" type="Control" unique_id=1025473157]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,39 +18,39 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -11.5
-offset_right = 12.0
-offset_bottom = 3005.0
+offset_left = -40.0
+offset_top = -427.5
+offset_right = 40.0
+offset_bottom = 2790.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 texture = ExtResource("2_7ffuj")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=612386067]
+visible = false
+layout_mode = 0
+offset_left = -14.0
+offset_top = -4.0
+offset_right = 1308.0
+offset_bottom = 792.0
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1613678206]
-custom_minimum_size = Vector2(200, 220)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = 10.0
-offset_right = 150.0
-offset_bottom = 230.0
+offset_left = -46.0
+offset_top = 79.0
+offset_right = 46.0
+offset_bottom = 145.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
-alignment = 1
 
 [node name="PlayButton" type="TextureButton" parent="VBoxContainer" unique_id=64812713]
-custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
-size_flags_vertical = 3
 texture_normal = ExtResource("2_sa0xv")
-texture_pressed = ExtResource("4_vnx52")
-stretch_mode = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/PlayButton" unique_id=1619273795]
 layout_mode = 1
@@ -61,18 +59,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("5_juwrh")
-theme_override_font_sizes/normal_font_size = 65
 text = "Play"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="QuitButton" type="TextureButton" parent="VBoxContainer" unique_id=447853853]
-custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 texture_normal = ExtResource("2_sa0xv")
-texture_pressed = ExtResource("4_vnx52")
-stretch_mode = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/QuitButton" unique_id=350707412]
 layout_mode = 1
@@ -81,8 +74,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("5_juwrh")
-theme_override_font_sizes/normal_font_size = 65
 text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
