@@ -219,7 +219,6 @@ position = Vector2(2335, 72)
 shape = SubResource("RectangleShape2D_fryx4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2143931055]
-visible = false
 
 [node name="Control" parent="CanvasLayer" unique_id=320910290 instance=ExtResource("5_fryx4")]
 
