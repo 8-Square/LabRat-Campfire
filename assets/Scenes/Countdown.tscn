@@ -2,6 +2,85 @@
 
 [ext_resource type="Script" uid="uid://buc8ftmw5uu4i" path="res://assets/Scripts/time.gd" id="1_21dbo"]
 [ext_resource type="FontFile" uid="uid://d2cbiv80qul2m" path="res://assets/Fonts/Impacted.ttf" id="2_6b0ek"]
+[ext_resource type="Texture2D" uid="uid://dmchidvmudjxj" path="res://assets/Sprites/Cutscenes/Death.PNG" id="2_nqh0u"]
+[ext_resource type="Texture2D" uid="uid://pvpj8t1kdoy" path="res://assets/Sprites/UI/actual_button_ui.PNG" id="4_lmf7o"]
+
+[sub_resource type="Animation" id="Animation_6b0ek"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameOverText:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_lmf7o"]
+resource_name = "game_over"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameOverText:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_nqh0u"]
+resource_name = "player_death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lmf7o"]
+_data = {
+&"RESET": SubResource("Animation_6b0ek"),
+&"game_over": SubResource("Animation_lmf7o"),
+&"player_death": SubResource("Animation_nqh0u")
+}
 
 [node name="Control" type="Control" unique_id=320910290]
 layout_mode = 3
@@ -28,6 +107,40 @@ metadata/_edit_use_anchors_ = true
 wait_time = 100.0
 autostart = true
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1031684129]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -62.0
+offset_right = 25.0
+offset_bottom = 375.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nqh0u")
+
+[node name="GameOverText" type="Label" parent="." unique_id=1035104387]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.5
+offset_top = -97.0
+offset_right = 255.5
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6b0ek")
+theme_override_font_sizes/font_size = 65
+text = "You were too slow..."
+horizontal_alignment = 1
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1512864482]
 visible = false
 
@@ -52,7 +165,7 @@ offset_bottom = -66.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_6b0ek")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 65
 text = "Your Final Score is:"
 horizontal_alignment = 1
 
@@ -63,12 +176,46 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -191.0
-offset_top = -142.0
+offset_top = -22.0
 offset_right = 191.0
-offset_bottom = -66.0
+offset_bottom = 54.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_6b0ek")
 theme_override_font_sizes/font_size = 50
 text = "Your Final Score is:"
 horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer" unique_id=767677]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.50006
+offset_top = 141.00006
+offset_right = 867.5
+offset_bottom = 565.0001
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("4_lmf7o")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TextureButton" unique_id=209720386]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_6b0ek")
+theme_override_font_sizes/normal_font_size = 200
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1174270893]
+libraries/ = SubResource("AnimationLibrary_lmf7o")
+
+[connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_texture_button_pressed"]

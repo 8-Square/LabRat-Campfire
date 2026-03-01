@@ -5,6 +5,7 @@ class_name Player extends CharacterBody2D
 @onready var stage_bit: StageBit = $StageBit
 @onready var animated_sprite: AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var countdown: Countdown = $"../CanvasLayer/Countdown"
 
 # Tilemap, for death loop
 @onready var tile_map_layer: TileMapLayer = $"../TileMapLayer"
@@ -21,10 +22,20 @@ var can_control: bool = true
 var death_count: float = 0
 var alive: bool = true
 
+var current_stage: int = 0
+
 
 func _ready() -> void:
 	stage_bit.applySprite(0)
 	animated_sprite = stage_bit.currentSprite()
+
+func changeStage(stage: int):
+	stage_bit.applySprite(stage)
+	animated_sprite = stage_bit.currentSprite()
+	
+	print("ChangedStage to stage " + str(stage))
+	
+	current_stage = stage
 
 func _physics_process(delta: float) -> void:
 	# if can_control is off, player cant control, as the name implies....
@@ -82,7 +93,7 @@ func _physics_process(delta: float) -> void:
 func reset() -> void:
 	can_control = false
 	velocity = Vector2.ZERO
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(0.2).timeout
 	global_position = respawn_point.global_position
 	can_control = true
 
@@ -111,4 +122,8 @@ func check_spikes():
 				if tile_map_layer.get_cell_tile_data(tile_pos):
 					if tile_data.get_custom_data("damage_block") and can_control:
 						print("HITTING THE RIGHT ONE..?")
+						player_death()
 						reset()
+
+func player_death():
+	countdown.player_death()

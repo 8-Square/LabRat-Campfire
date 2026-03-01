@@ -9,7 +9,6 @@ func applySprite(skin_index: int) -> void:
 		stage_skins[i].visible = (i == skin_index)
 	animated_sprite = stage_skins[skin_index]
 	animated_sprite.play("idle")
-	
 
 func currentSprite() -> AnimatedSprite2D:
 	return animated_sprite

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Lab Rat-Campfire"
-run/main_scene="uid://bq6vcc7fm4x4u"
+run/main_scene="uid://bvd4mt1vbmkfg"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
