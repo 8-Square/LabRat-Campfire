@@ -11,4 +11,11 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_play_button_pressed():
-	get_tree().change_scene_to_file("res://assets/Scenes/game.tscn".tscn")
+	AnimationPlayer
+	get_tree().change_scene_to_file("res://assets/Scenes/game.tscn")
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
+	
+	
