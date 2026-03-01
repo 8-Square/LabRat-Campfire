@@ -35,7 +35,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_lmf7o"]
 resource_name = "game_over"
-length = 12.0
+length = 8.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -43,10 +43,10 @@ tracks/0/path = NodePath("TextureRect:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 12),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -55,10 +55,10 @@ tracks/1/path = NodePath("GameOverText:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 12),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_nqh0u"]
@@ -102,7 +102,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_6b0ek")
 theme_override_font_sizes/font_size = 75
-text = "100"
+text = "140"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -146,6 +146,37 @@ theme_override_fonts/font = ExtResource("2_6b0ek")
 theme_override_font_sizes/font_size = 65
 text = "You were too slow..."
 horizontal_alignment = 1
+
+[node name="MainMenuButton" type="TextureButton" parent="." unique_id=308898236]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 408.50012
+offset_top = 237.00006
+offset_right = 1371.5001
+offset_bottom = 661.0001
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("4_lmf7o")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenuButton" unique_id=1744482516]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("2_6b0ek")
+theme_override_font_sizes/normal_font_size = 200
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1512864482]
 visible = false
@@ -224,4 +255,5 @@ vertical_alignment = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1174270893]
 libraries/ = SubResource("AnimationLibrary_lmf7o")
 
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_texture_button_pressed"]

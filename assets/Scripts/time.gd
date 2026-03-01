@@ -10,8 +10,9 @@ class_name Countdown extends Control
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var game_over_text: Label = $GameOverText
 @onready var rat_death: AudioStreamPlayer = $RatDeath
+@onready var main_menu_button: TextureButton = $MainMenuButton
 
-var bts_timer: float = 140
+var bts_timer: float = 180
 
 var game_started 
 var final_time: float
@@ -23,6 +24,7 @@ var sewer_two = "res://assets/Scenes/Sewers/SewerTwo.tscn"
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	main_menu_button.hide()
 	texture_rect.hide()
 	canvas_layer.hide()
 
@@ -68,10 +70,9 @@ func skinStage():
 
 func game_over():
 	texture_rect.show()
+	main_menu_button.show()
 	game_over_text.show()
 	animation_player.play("game_over")
-	await animation_player.animation_finished
-	get_tree().change_scene_to_file("res://assets/Scenes/Main_Menu.tscn")
 func player_death():
 	animation_player.play("player_death")
 
