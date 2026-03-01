@@ -9,6 +9,7 @@ class_name Player extends CharacterBody2D
 
 # Tilemap, for death loop
 @onready var tile_map_layer: TileMapLayer = $"../TileMapLayer"
+@onready var rat_death: AudioStreamPlayer = $RatDeath
 
 const SPEED = 250
 const SPRINT_SPEED = 400
@@ -126,4 +127,5 @@ func check_spikes():
 						reset()
 
 func player_death():
+	rat_death.play()
 	countdown.player_death()

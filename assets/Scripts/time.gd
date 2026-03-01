@@ -9,8 +9,9 @@ class_name Countdown extends Control
 @onready var texture_rect: TextureRect = $TextureRect
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var game_over_text: Label = $GameOverText
+@onready var rat_death: AudioStreamPlayer = $RatDeath
 
-var bts_timer: float = 70
+var bts_timer: float = 140
 
 var game_started 
 var final_time: float
@@ -26,10 +27,12 @@ func _ready() -> void:
 	canvas_layer.hide()
 
 func _input(event: InputEvent) -> void:
+	var current_scene = get_tree().current_scene.scene_file_path
+	if current_scene == sewer_one or current_scene == sewer_two:
 	# Checks if game started
-	if !game_started:
-		if Input.is_action_just_pressed("move"):
-			game_started = true
+		if !game_started:
+			if Input.is_action_just_pressed("move"):
+				game_started = true
 
 
 func _process(delta: float) -> void:
