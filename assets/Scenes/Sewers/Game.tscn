@@ -168,6 +168,9 @@ b = Vector2(-56, 39)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ite4u"]
 size = Vector2(61, 21)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_634sb"]
+size = Vector2(77, 17)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsc0g"]
 size = Vector2(305, 104)
 
@@ -202,6 +205,10 @@ shape = SubResource("SegmentShape2D_ite4u")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="TileMapLayer/DeathZone" unique_id=1197864230]
 position = Vector2(815.5, 58.5)
 shape = SubResource("RectangleShape2D_ite4u")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="TileMapLayer/DeathZone" unique_id=1654414788]
+position = Vector2(567.5, -31.5)
+shape = SubResource("RectangleShape2D_634sb")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="TileMapLayer/DeathZone" unique_id=517206820]
 position = Vector2(1669.5, 77)
