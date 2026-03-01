@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dswc2rgkl78xl"]
+
+[ext_resource type="Script" uid="uid://cf5yar6tdmr0r" path="res://assets/Scripts/end_portal1.gd" id="1_hf1p6"]
+[ext_resource type="Texture2D" uid="uid://cewollmb4vp11" path="res://assets/Sprites/grate.PNG" id="2_emt4g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hf1p6"]
+radius = 36.0
+
+[node name="EndPortal" type="Area2D" unique_id=885625321]
+script = ExtResource("1_hf1p6")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=401082331]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_emt4g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2097560209]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_hf1p6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://7d0joyobowj2" path="res://assets/Sprites/Player/Stage 3/player-stage3.png" id="4_ekhp3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4662"]
-size = Vector2(59.714287, 32)
+size = Vector2(66.85715, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_apsa1"]
 atlas = ExtResource("2_2pn7s")
@@ -128,7 +128,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_fn0c2")
 }],
 "loop": true,
-"name": &"idle1",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -136,7 +136,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_vcdtb")
 }],
 "loop": true,
-"name": &"jump1",
+"name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
@@ -324,32 +324,30 @@ scale = Vector2(0.7, 0.7)
 script = ExtResource("1_6dsi4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1984248844]
-position = Vector2(4.1428566, 3.9999993)
-scale = Vector2(0.99999994, 0.99999994)
+position = Vector2(0.5714245, 3.9999986)
+scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_q4662")
 debug_color = Color(1.3912795e-08, 0.01758954, 0.024891524, 0.41960785)
 
 [node name="Stage0" type="AnimatedSprite2D" parent="." unique_id=235676299]
 sprite_frames = SubResource("SpriteFrames_6dsi4")
-animation = &"idle"
+animation = &"jump"
+frame_progress = 0.764695
 
 [node name="Stage1" type="AnimatedSprite2D" parent="." unique_id=218582114]
-visible = false
 sprite_frames = SubResource("SpriteFrames_31e1s")
-animation = &"sprint"
-frame = 2
+animation = &"jump"
 
 [node name="Stage2" type="AnimatedSprite2D" parent="." unique_id=683310497]
-visible = false
 sprite_frames = SubResource("SpriteFrames_1v1sd")
 animation = &"sprint"
 
 [node name="Stage3" type="AnimatedSprite2D" parent="." unique_id=964081359]
-visible = false
 sprite_frames = SubResource("SpriteFrames_qp1kq")
 animation = &"walk"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=923384719]
+visible = false
 zoom = Vector2(2, 2)
 
 [node name="StageBit" type="Node" parent="." unique_id=1614166643 node_paths=PackedStringArray("stage_skins")]
