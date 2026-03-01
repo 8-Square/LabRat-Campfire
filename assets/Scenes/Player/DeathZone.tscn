@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://lhtahidmayr7"]
+
+[ext_resource type="Script" uid="uid://contl4qr8fk12" path="res://assets/Scripts/death_zone.gd" id="1_pb2sh"]
+
+[node name="DeathZone" type="Area2D" unique_id=1767013401]
+script = ExtResource("1_pb2sh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

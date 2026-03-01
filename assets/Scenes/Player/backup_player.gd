@@ -1,4 +1,4 @@
-class_name Player extends CharacterBody2D
+class_name BackupPlayer extends CharacterBody2D
 
 @export var respawn_point: Node2D
 
@@ -10,15 +10,21 @@ class_name Player extends CharacterBody2D
 
 const SPEED = 250
 const SPRINT_SPEED = 400
-const SPRINT_JUMP_VELOCITY = -275.0
-const JUMP_VELOCITY = -200.0
+const SPRINT_JUMP_VELOCITY = -375.0
+const JUMP_VELOCITY = -350.0
 
 var toggled_sprint: bool = false
 var is_walking: bool = false
 
 var can_control: bool = true
-var death_count: float = 0
-var alive: bool = true
+
+
+@export var allowed_direction := Vector2.RIGHT
+
+@export var one_way_layer := 2
+@export var pass_through_time := 0.2
+
+var passing_through := false
 
 
 func _ready() -> void:
@@ -28,10 +34,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# if can_control is off, player cant control, as the name implies....
 	if !can_control: 
-		#velocity = Vector2.ZERO
-		#move_and_slide()
+		velocity = Vector2.ZERO
+		move_and_slide()
 		return
-	
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -59,9 +64,14 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.play("walk")
 			animated_sprite.flip_h = velocity.x < 0
 		is_walking = true
+		
+		# One way wall
+		if is_touching_one_way_wall():
+			pass_through_wall()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animated_sprite.play("idle")
+	
 	
 	# Sprinting code thingy (toggles sprinting)
 	if Input.is_action_just_pressed("sprint"):
@@ -81,36 +91,50 @@ func reset() -> void:
 	global_position = respawn_point.global_position
 	can_control = true
 
+# Spikes/Death Loop
+func check_spikes():
+	# Gets cells (Squares) in tilemap 
+	var cell: Vector2i = tile_map_layer.local_to_map(tile_map_layer.to_local(global_position))
+	# Gets data of current cell (square) of tilemap 
+	var tile_data: TileData = tile_map_layer.get_cell_tile_data(cell)
+	
+	# checks for data and if it has damage_block (for deaht of player)
+	if tile_data:
+		if tile_data.get_custom_data("DamageTile") or tile_data.get_custom_data("damage_block") and can_control:
+			print("PLAYER DIED")
+			can_control = false
+			reset()
+			
 
 
 # RANDOM, PROBABLY GONNA REMOVE
-#func is_touching_one_way_wall() -> bool:
-	#for i in get_slide_collision_count():
-		#var collision = get_slide_collision(i)
-		#if collision.get_collider() && (1 << (one_way_layer - 1)):
-			#return true
-	#return false
-#func pass_through_wall():
-	#passing_through = true
-	#
-	## Disable collision with one-way wall layer
-	#set_collision_mask_value(one_way_layer, false)
-#
-	#await get_tree().create_timer(pass_through_time).timeout
-#
-	## Re-enable collision
-	#set_collision_mask_value(one_way_layer, true)
-	#
-	#passing_through = false
+func is_touching_one_way_wall() -> bool:
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider() && (1 << (one_way_layer - 1)):
+			return true
+	return false
+func pass_through_wall():
+	passing_through = true
+	
+	# Disable collision with one-way wall layer
+	set_collision_mask_value(one_way_layer, false)
+
+	await get_tree().create_timer(pass_through_time).timeout
+
+	# Re-enable collision
+	set_collision_mask_value(one_way_layer, true)
+	
+	passing_through = false
 
 
 # Spikes/Death Loop
 func check_spikes():
-	## Gets cells (Squares) in tilemap 
-	#var cell: Vector2i = tile_map_layer.local_to_map(tile_map_layer.to_local(global_position))
-	## Gets data of current cell (square) of tilemap 
-	#var tile_data: TileData = tile_map_layer.get_cell_tile_data(cell)
-	## checks for data and if it has damage_block (for deaht of player)
+	# Gets cells (Squares) in tilemap 
+	var cell: Vector2i = tile_map_layer.local_to_map(tile_map_layer.to_local(global_position))
+	# Gets data of current cell (square) of tilemap 
+	var tile_data: TileData = tile_map_layer.get_cell_tile_data(cell)
+	# checks for data and if it has damage_block (for deaht of player)
 	#if tile_data:
 		#if (tile_data.get_custom_data("DamageTile") or tile_data.get_custom_data("damage_block")) and can_control:
 			#print("PLAYER DIED")
@@ -122,11 +146,10 @@ func check_spikes():
 		var collider = collision.get_collider()
 		if collider == tile_map_layer:
 			# Convert collision point to tile coordinates
-			var tile_pos = tile_map_layer.local_to_map(collision.get_position())    
+			var tile_pos = tile_map_layer.local_to_map(collision.get_position())     
 			# Check if there's a tile at this position
-			var tile_data = tile_map_layer.get_cell_tile_data(tile_pos)
 			if tile_map_layer.get_cell_source_id(tile_pos) != -1:
 				if tile_map_layer.get_cell_tile_data(tile_pos):
 					if tile_data.get_custom_data("damage_block") and can_control:
+					#reset()
 						print("HITTING THE RIGHT ONE..?")
-						reset()

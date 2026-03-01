@@ -13,7 +13,3 @@ func applySprite(skin_index: int) -> void:
 
 func currentSprite() -> AnimatedSprite2D:
 	return animated_sprite
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
