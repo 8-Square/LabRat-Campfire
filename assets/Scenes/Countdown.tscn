@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://buc8ftmw5uu4i" path="res://assets/Scripts/time.gd" id="1_21dbo"]
 [ext_resource type="FontFile" uid="uid://d2cbiv80qul2m" path="res://assets/Fonts/Impacted.ttf" id="2_6b0ek"]
+[ext_resource type="FontFile" uid="uid://4bqx866yqdf2" path="res://assets/Fonts/Jersey10-Regular.ttf" id="2_ambd3"]
 [ext_resource type="AudioStream" uid="uid://38716m6mnpin" path="res://assets/Audio/rat_death.mp3" id="2_fmlj1"]
 [ext_resource type="Texture2D" uid="uid://dmchidvmudjxj" path="res://assets/Sprites/Cutscenes/Death.PNG" id="2_nqh0u"]
 [ext_resource type="Texture2D" uid="uid://pvpj8t1kdoy" path="res://assets/Sprites/UI/actual_button_ui.PNG" id="4_lmf7o"]
@@ -182,7 +183,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_6b0ek")
+theme_override_fonts/font = ExtResource("2_ambd3")
 theme_override_font_sizes/font_size = 75
 text = "120"
 horizontal_alignment = 1
@@ -261,6 +262,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1512864482]
+visible = false
 
 [node name="ColorRect" type="TextureRect" parent="CanvasLayer" unique_id=450247063]
 anchors_preset = 15
