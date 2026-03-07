@@ -89,6 +89,7 @@ func change_level():
 	before_level_change = bts_timer
 	get_tree().change_scene_to_file("res://assets/Scenes/Sewers/SewerTwo.tscn")
 	bts_timer = before_level_change
+	player.new_level()
 
 func calc_final_score():
 	final_time = bts_timer

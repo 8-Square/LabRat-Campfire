@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkbfrcsmb2y2y" path="res://assets/Scenes/Countdown.tscn" id="5_fryx4"]
 [ext_resource type="PackedScene" uid="uid://lhtahidmayr7" path="res://assets/Scenes/Player/DeathZone.tscn" id="5_ite4u"]
 [ext_resource type="PackedScene" uid="uid://bj8rpvy0lrxjg" path="res://assets/Scenes/Player.tscn" id="6_bofgr"]
+[ext_resource type="PackedScene" uid="uid://ge5240ge5nvw" path="res://assets/Scenes/checkpoint.tscn" id="6_dwikb"]
 [ext_resource type="PackedScene" uid="uid://dswc2rgkl78xl" path="res://assets/Scenes/Sewers/EndPortal.tscn" id="7_fryx4"]
 [ext_resource type="AudioStream" uid="uid://b2ftbvnfup6lh" path="res://assets/Scenes/Rain_World_-_Lack_of_Comfort_(mp3.pm).mp3" id="9_634sb"]
 [ext_resource type="FontFile" uid="uid://d2cbiv80qul2m" path="res://assets/Fonts/Impacted.ttf" id="10_634sb"]
@@ -184,8 +185,11 @@ size = Vector2(77, 17)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsc0g"]
 size = Vector2(305, 104)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fryx4"]
-size = Vector2(180, 64)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0t57a"]
+size = Vector2(223.5, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1v8y2"]
+size = Vector2(212, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwikb"]
 size = Vector2(355, 64)
@@ -235,13 +239,20 @@ shape = SubResource("RectangleShape2D_634sb")
 position = Vector2(1669.5, 77)
 shape = SubResource("RectangleShape2D_jsc0g")
 
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="TileMapLayer/DeathZone" unique_id=954257894]
+position = Vector2(1394.25, 9)
+shape = SubResource("RectangleShape2D_0t57a")
+
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="TileMapLayer/DeathZone" unique_id=796173251]
-position = Vector2(2335, 72)
-shape = SubResource("RectangleShape2D_fryx4")
+position = Vector2(2331, 75.5)
+shape = SubResource("RectangleShape2D_1v8y2")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="TileMapLayer/DeathZone" unique_id=1366415162]
 position = Vector2(2749.5, 89)
 shape = SubResource("RectangleShape2D_dwikb")
+
+[node name="Checkpoint" parent="." unique_id=1566920803 instance=ExtResource("6_dwikb")]
+position = Vector2(1994.9999, 22.999985)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2143931055]
 
@@ -284,7 +295,7 @@ theme_override_fonts/normal_font = ExtResource("10_634sb")
 text = "WASD - Movement
 Space/W - Jump
 Shift/Control - Sprint
-R - Shift"
+R - Respawn"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1580193238]
 offset_left = 136.0

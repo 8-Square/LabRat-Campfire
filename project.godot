@@ -20,6 +20,10 @@ run/main_scene="uid://bvd4mt1vbmkfg"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalCheckpoint="*uid://b7ij6jdkbced7"
+
 [display]
 
 window/size/viewport_width=1280

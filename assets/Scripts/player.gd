@@ -29,6 +29,9 @@ var current_stage: int = 0
 func _ready() -> void:
 	stage_bit.applySprite(0)
 	animated_sprite = stage_bit.currentSprite()
+	
+	if GlobalCheckpoint.checkpoint_pos != Vector2(-999, -999):
+		global_position = GlobalCheckpoint.checkpoint_pos
 
 func changeStage(stage: int):
 	stage_bit.applySprite(stage)
@@ -94,8 +97,8 @@ func _physics_process(delta: float) -> void:
 func reset() -> void:
 	can_control = false
 	velocity = Vector2.ZERO
-	await get_tree().create_timer(0.2).timeout
-	global_position = respawn_point.global_position
+	await get_tree().create_timer(0.6).timeout
+	respawn()
 	can_control = true
 
 # Spikes/Death Loop
@@ -129,3 +132,13 @@ func check_spikes():
 func player_death():
 	rat_death.play()
 	countdown.player_death()
+
+func respawn():
+	if GlobalCheckpoint.checkpoint_pos != Vector2(-999, -999):
+		global_position = GlobalCheckpoint.checkpoint_pos
+	else:
+		global_position = respawn_point.global_position
+
+func new_level():
+	GlobalCheckpoint.checkpoint_pos = Vector2(-999, -999)
+	GlobalCheckpoint.previous_checkpoint_node = null
