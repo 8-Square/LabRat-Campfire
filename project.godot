@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalCheckpoint="*uid://b7ij6jdkbced7"
+GlobalCount="*uid://0h2l7jhxo1ui"
 
 [display]
 

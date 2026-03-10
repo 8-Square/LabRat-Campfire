@@ -1,5 +1,7 @@
 class_name Countdown extends Control
 
+
+
 @onready var countdown: Label = $Countdown
 @onready var timer: Timer = $Timer
 @onready var final_time_label: Label = $CanvasLayer/FinalTimeLabel
@@ -13,7 +15,7 @@ class_name Countdown extends Control
 @onready var main_menu_button: TextureButton = $MainMenuButton
 @onready var yay: AudioStreamPlayer = $yay
 
-var bts_timer: float = 120
+var bts_timer: float = 150
 
 var game_started 
 var final_time: float
@@ -28,6 +30,8 @@ func _ready() -> void:
 	main_menu_button.hide()
 	texture_rect.hide()
 	canvas_layer.hide()
+	bts_timer = GlobalCount.time_remaining
+	countdown.text = str(int(GlobalCount.time_remaining))
 
 func _input(event: InputEvent) -> void:
 	var current_scene = get_tree().current_scene.scene_file_path
@@ -39,17 +43,19 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	# Countdown display 
-	if bts_timer > 0 and game_started == true:
-		bts_timer -= delta
-		countdown.text = str(int(bts_timer))
-	elif bts_timer <= 0 and game_started == true:
-		print("GAME OVER")
-		game_over()
-	
-	if Input.is_action_just_pressed("reset"):
-		reset()
-	skinStage()
+	var current_scene = get_tree().current_scene.scene_file_path
+	if current_scene == sewer_one or current_scene == sewer_two:
+		# Countdown display 
+		if bts_timer > 0 and game_started == true:
+			bts_timer -= delta
+			countdown.text = str(int(bts_timer))
+		elif bts_timer <= 0 and game_started == true:
+			print("GAME OVER")
+			game_over()
+		
+		if Input.is_action_just_pressed("reset"):
+			reset()
+		skinStage()
 
 func stop():
 	game_started = false
@@ -86,7 +92,7 @@ func game_complete():
 
 func change_level():
 	stop()
-	before_level_change = bts_timer
+	GlobalCount.time_remaining = bts_timer
 	get_tree().change_scene_to_file("res://assets/Scenes/Sewers/SewerTwo.tscn")
 	bts_timer = before_level_change
 	player.new_level()
