@@ -24,6 +24,7 @@ var before_level_change: float
 
 var sewer_one = "res://assets/Scenes/Sewers/Game.tscn"
 var sewer_two = "res://assets/Scenes/Sewers/SewerTwo.tscn"
+var sewer_three = "res://assets/Scenes/Sewers/SewerThree.tscn"
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,7 +36,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	var current_scene = get_tree().current_scene.scene_file_path
-	if current_scene == sewer_one or current_scene == sewer_two:
+	if current_scene == sewer_one or current_scene == sewer_two or current_scene == sewer_three:
 	# Checks if game started
 		if !game_started:
 			if Input.is_action_just_pressed("move"):
@@ -44,7 +45,7 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	var current_scene = get_tree().current_scene.scene_file_path
-	if current_scene == sewer_one or current_scene == sewer_two:
+	if current_scene == sewer_one or current_scene == sewer_two or current_scene == sewer_three:
 		# Countdown display 
 		if bts_timer > 0 and game_started == true:
 			bts_timer -= delta
@@ -67,12 +68,12 @@ func reset():
 func skinStage():
 	var current_scene = get_tree().current_scene.scene_file_path
 
-	if current_scene == sewer_one:
-		if bts_timer <= 100 and player.current_stage == 0:
+	if current_scene == sewer_one or current_scene == sewer_two or current_scene == sewer_three:
+		if bts_timer <= 145 and player.current_stage == 0:
 			player.changeStage(1)
-		elif bts_timer <= 65 and player.current_stage == 1:
+		elif bts_timer <= 90 and player.current_stage == 1:
 			player.changeStage(2)
-		elif bts_timer <= 35 and player.current_stage == 2:
+		elif bts_timer <= 50 and player.current_stage == 2:
 			player.changeStage(3)
 
 func game_over():
@@ -91,9 +92,13 @@ func game_complete():
 	yay.play()
 
 func change_level():
+	var current_scene = get_tree().current_scene.scene_file_path
 	stop()
 	GlobalCount.time_remaining = bts_timer
-	get_tree().change_scene_to_file("res://assets/Scenes/Sewers/SewerTwo.tscn")
+	if current_scene == sewer_one:
+		get_tree().change_scene_to_file("res://assets/Scenes/Sewers/SewerTwo.tscn")
+	elif current_scene == sewer_two:
+		get_tree().change_scene_to_file("res://assets/Scenes/Sewers/SewerThree.tscn")
 	bts_timer = before_level_change
 	player.new_level()
 
