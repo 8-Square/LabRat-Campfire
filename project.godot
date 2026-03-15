@@ -15,10 +15,10 @@ config/description="You're an infected rat and want to infect everyone else
 
 A game made for HackClub Campfire in under 48 hours
 "
-config/version="1.0.4"
+config/version="1.1.0"
 run/main_scene="uid://bvd4mt1vbmkfg"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://bgr75ev4ly40"
 
 [autoload]
 
