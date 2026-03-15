@@ -292,32 +292,47 @@ libraries/ = SubResource("AnimationLibrary_8y1ep")
 
 [node name="Cut1" type="TextureRect" parent="." unique_id=1926194479]
 visible = false
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("6_vemy8")
 metadata/_edit_use_anchors_ = true
 
 [node name="Cut2" type="TextureRect" parent="." unique_id=306844039]
 visible = false
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("8_snlq0")
+metadata/_edit_use_anchors_ = true
 
 [node name="Cut3" type="TextureRect" parent="." unique_id=1694364552]
 visible = false
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("7_snlq0")
+metadata/_edit_use_anchors_ = true
 
 [node name="Cut4" type="TextureRect" parent="." unique_id=1791857898]
 visible = false
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("8_q2cve")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

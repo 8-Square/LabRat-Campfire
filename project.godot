@@ -15,7 +15,7 @@ config/description="You're an infected rat and want to infect everyone else
 
 A game made for HackClub Campfire in under 48 hours
 "
-config/version="1.1.0"
+config/version="1.1.3"
 run/main_scene="uid://bvd4mt1vbmkfg"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://bgr75ev4ly40"
@@ -30,6 +30,8 @@ GlobalCount="*uid://0h2l7jhxo1ui"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/resizable=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 

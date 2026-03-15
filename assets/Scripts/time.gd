@@ -69,7 +69,7 @@ func skinStage():
 	var current_scene = get_tree().current_scene.scene_file_path
 
 	if current_scene == sewer_one or current_scene == sewer_two or current_scene == sewer_three:
-		if bts_timer <= 145 and player.current_stage == 0:
+		if bts_timer <= 120 and player.current_stage == 0:
 			player.changeStage(1)
 		elif bts_timer <= 90 and player.current_stage == 1:
 			player.changeStage(2)
